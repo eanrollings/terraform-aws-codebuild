@@ -73,6 +73,7 @@ variable "environment" {
     type            = "LINUX_CONTAINER"
     image           = "aws/codebuild/nodejs:6.3.1"
     compute_type    = "BUILD_GENERAL1_SMALL"
+    env_vars        = {}
   }
 }
 
