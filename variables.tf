@@ -73,10 +73,12 @@ variable "environment" {
     type            = "LINUX_CONTAINER"
     image           = "aws/codebuild/nodejs:6.3.1"
     compute_type    = "BUILD_GENERAL1_SMALL"
-    env_vars        = {}
+    default_region  = null
+    account_id      = null
+    image_repo_name = null
+    image_tag       = "latest"
   }
 }
-
 
 variable "sourcecode" {
   description = "A map to describe where your sourcecode comes from, to fill the sourcecode block in a Codebuild project "

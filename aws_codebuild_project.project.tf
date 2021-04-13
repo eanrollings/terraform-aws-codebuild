@@ -20,6 +20,27 @@ resource "aws_codebuild_project" "project" {
     image           = var.environment["image"]
     type            = var.environment["type"]
     privileged_mode = var.environment["privileged_mode"]
+    environment_variable {
+      name  = "AWS_DEFAULT_REGION"
+      value = var.environment["default_region"]
+    }
+    environment_variable {
+      name  = "AWS_ACCOUNT_ID"
+      value = var.environment["account_id"]
+    }
+    environment_variable {
+      name  = "IMAGE_REPO_NAME"
+      value = var.environment["image_repo_name"]
+    }
+    environment_variable {
+      name  = "IMAGE_TAG"
+      value = var.environment["image_tag"]
+    }
+    environment_variable {
+      name  = "BUILDNUMBER"
+      value = "/CodeBuild/BUILDNUMBER"
+      type  = "PARAMETER_STORE"
+    }
   }
 
   source {
