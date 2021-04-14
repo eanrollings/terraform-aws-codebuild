@@ -1,7 +1,7 @@
 resource "aws_iam_role" "trigger" {
   count = var.reponame == "" ? 0 : 1
   path  = "/service-role/"
-  name  = "eventtrigger-${var.reponame}"
+  name  = "eventtrigger-${var.name}"
 
   assume_role_policy = <<PATTERN
 {
