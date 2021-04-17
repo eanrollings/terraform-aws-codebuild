@@ -49,5 +49,7 @@ resource "aws_codebuild_project" "project" {
     buildspec = var.sourcecode["buildspec"]
   }
 
+  source_version = var.defaultbranch
+
   tags = var.common_tags
 }
