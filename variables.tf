@@ -21,6 +21,12 @@ variable "build_timeout" {
   default     = "60"
 }
 
+variable "buildspec" {
+  description = "Inline buildspec yaml"
+  type        = string
+  default     = null
+}
+
 variable "role" {
   description = "Override for providing a role"
   default     = ""
