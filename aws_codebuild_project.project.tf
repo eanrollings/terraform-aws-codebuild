@@ -5,7 +5,6 @@ resource "aws_codebuild_project" "project" {
   description   = var.description
   service_role  = var.role == "" ? element(concat(aws_iam_role.codebuild.*.arn, list("")), 0) : element(concat(data.aws_iam_role.existing.*.arn, list("")), 0)
   build_timeout = var.build_timeout
-  buildspec     = var.buildspec
 
   artifacts {
     encryption_disabled = var.encryption_disabled
@@ -15,7 +14,6 @@ resource "aws_codebuild_project" "project" {
     packaging           = var.artifact["packaging"]
     type                = var.artifact_type
   }
-
 
   environment {
     compute_type    = var.environment["compute_type"]
